@@ -10,12 +10,12 @@ Combined with [sceadu-fæx](https://github.com/bahrus/sceadu-fax)[TODO], it can 
 
 ```html
 <!-- Petalia Notation -->
-<xt-f -template-chunk></xt-f>
+<xt-f -template-chunk -start-anew></xt-f>
 ```
 
 Property templateChunk can either be a DocumentFragment, an Element, or a Template.  In the case of a template, it is first cloned into a DocumentFragment.
 
-When the property is set (or changed), content is appended to a flat range of siblings after the xt-f element.
+When the property is set (or changed), the externally provided content is appended to a flat range of siblings after the xt-f element.
 
 If xt-f is removed from the live DOM tree, the content it manages follows the same fate.
 
@@ -23,4 +23,6 @@ If xt-f is removed from the live DOM tree, the content it manages follows the sa
 
 1.  If the contents "grouped" by xt-f need to be moved to a new location in the DOM tree, this should be done via newDestination.appendChild($0.extractContents()) where $0 is the instance of xt-f.
 2.  The rendering library may need to skip over the grouped siblings when updating the DOM, via $0.nextUngroupedSibling, where $0 is the instance of xt-f.
+
+Property startAnew is a boolean (that can be repeatedly set to true), that clears the contents.
 
