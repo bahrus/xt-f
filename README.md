@@ -1,10 +1,10 @@
 # xt-f [TODO]
 
-xt-f is a web component.  The f stands for "fragment.". The xt can stand for "external", "existential", "XmlStream" -- whatever makes it easier to remember.  
+xt-f is a web component.  The f stands for "fragment". The xt can stand for "external", "existential", "XmlStream" -- whatever makes it easier to remember.  
 
 It provides an api, so that fragments can be passed in and managed, keeping things flat.
 
-Combined with [sceadu-fæx](https://github.com/bahrus/sceadu-fax)[TODO], it can behave similar (but certainly not identical) to the slot element within shadow DOM, though its scope may be more limited.
+Combined with [sceadu-fæx](https://github.com/bahrus/sceadu-fax)[TODO], it can behave similar (but certainly not identically) to the slot element within shadow DOM, though its scope may be more limited.
 
 ## Syntax
 
@@ -13,7 +13,7 @@ Combined with [sceadu-fæx](https://github.com/bahrus/sceadu-fax)[TODO], it can 
 <xt-f -template-chunk -start-anew></xt-f>
 ```
 
-Property templateChunk can either be a DocumentFragment, an Element, or a Template.  In the case of a template, it is first cloned into a DocumentFragment.
+Property templateChunk can either be a DocumentFragment, an Element, or an HTMLTemplateElement, or an array of elements.  In the case of a template, it is first cloned into a DocumentFragment.
 
 When the property is set (or changed), the externally provided content is appended to a flat range of siblings after the xt-f element.
 
@@ -26,3 +26,4 @@ If xt-f is removed from the live DOM tree, the content it manages follows the sa
 
 Property startAnew is a boolean (that can be repeatedly set to true), that clears the contents.
 
+Attribute "name" is reserved for slot-simulation use.
