@@ -10,10 +10,10 @@ Combined with [sceadu-fæx](https://github.com/bahrus/sceadu-fax)[TODO], it can 
 
 ```html
 <!-- Petalia Notation -->
-<xt-f -new-chunk -start-anew></xt-f>
+<xt-f -piped-chunk -start-anew></xt-f>
 ```
 
-Property newChunk can either be a DocumentFragment, an Element, or an HTMLTemplateElement, or an array of elements.  In the case of a template, it is first cloned into a DocumentFragment.
+Property pipedChunk can either be a DocumentFragment, an Element, or an HTMLTemplateElement, or an array of elements.  In the case of a template, it is first cloned into a DocumentFragment.
 
 When the property is set (or changed), the externally provided content is appended to a flat range of siblings after the xt-f element.
 
