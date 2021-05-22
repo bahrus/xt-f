@@ -12,6 +12,7 @@ export class XtF extends HTMLElement implements ReactiveSurface{
     startAnew: boolean | undefined;
 
     connectedCallback(){
+        this.style.display = 'none';
         xc.mergeProps(this, slicedPropDefs);
     }
     onPropChange(n: string, prop: PropDef, nv: any){

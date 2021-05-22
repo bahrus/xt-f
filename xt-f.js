@@ -9,6 +9,7 @@ export class XtF extends HTMLElement {
         this.reactor = new xc.Rx(this);
     }
     connectedCallback() {
+        this.style.display = 'none';
         xc.mergeProps(this, slicedPropDefs);
     }
     onPropChange(n, prop, nv) {
