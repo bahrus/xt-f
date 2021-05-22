@@ -35,7 +35,10 @@ const onPipedChunk = ({ pipedChunk, self }) => {
         appendArray(Array.from(pipedChunk), self);
     }
 };
-const propActions = [onPipedChunk];
+const onStartAnew = ({ startAnew, self }) => {
+    self.groupedRange?.deleteContents();
+};
+const propActions = [onPipedChunk, onStartAnew];
 const propDefMap = {
     pipedChunk: {
         type: Object,

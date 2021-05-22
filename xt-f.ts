@@ -34,7 +34,11 @@ const onPipedChunk = ({pipedChunk, self}: XtF) => {
         appendArray(Array.from(pipedChunk), self);
     }
 };
-const propActions = [onPipedChunk] as PropAction[];
+
+const onStartAnew = ({startAnew, self}: XtF) => {
+    self.groupedRange?.deleteContents();
+};
+const propActions = [onPipedChunk, onStartAnew] as PropAction[];
 
 const propDefMap: PropDefMap<XtF> = {
     pipedChunk: {
