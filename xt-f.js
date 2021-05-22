@@ -20,7 +20,22 @@ export class XtF extends HTMLElement {
     }
 }
 XtF.is = 'xt-f';
-const propActions = [];
+const onPipedChunk = ({ pipedChunk, self }) => {
+    if (pipedChunk instanceof HTMLTemplateElement) {
+        const documentFragment = pipedChunk.content.cloneNode(true);
+        appendFragment(documentFragment, self);
+    }
+    else if (pipedChunk instanceof Element) {
+        appendEl(pipedChunk, self);
+    }
+    else if (Array.isArray(pipedChunk)) {
+        appendArray(pipedChunk, self);
+    }
+    else if (pipedChunk instanceof NodeList) {
+        appendArray(Array.from(pipedChunk), self);
+    }
+};
+const propActions = [onPipedChunk];
 const propDefMap = {
     pipedChunk: {
         type: Object,
@@ -31,6 +46,21 @@ const propDefMap = {
         stopReactionsIfFalsy: true,
     }
 };
+function appendArray(ar, self) {
+    ar.forEach(el => {
+        appendEl(el, self);
+    });
+}
+function appendFragment(f, self) {
+    Array.from(f.children).forEach(child => {
+        appendEl(child, self);
+    });
+}
+function appendEl(el, self) {
+    const elToAppendTo = self.lastGroupedSibling === undefined ? self : self.lastGroupedSibling;
+    elToAppendTo.insertAdjacentElement('afterend', el);
+    self.lastGroupedSibling = el;
+}
 const slicedPropDefs = xc.getSlicedPropDefs(propDefMap);
 xc.letThereBeProps(XtF, slicedPropDefs, 'onPropChange');
 applyMixins(XtF, [GroupedSiblings]);

@@ -4,7 +4,7 @@ xt-f is a web component.  The f stands for "fragment". The xt can stand for "ext
 
 It provides an api, so that fragments can be passed in and managed, keeping things flat.
 
-Combined with [sceadu-fæx](https://github.com/bahrus/sceadu-fax)[TODO], it can behave similar (but certainly not identically) to the slot element within shadow DOM, though its scope may be more limited.
+Combined with [sceadu-fæx](https://github.com/bahrus/sceadu-fax)[TODO], it can behave similarly (but certainly not identically) to the slot element within shadow DOM, though its scope may be more limited.
 
 ## Syntax
 

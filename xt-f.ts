@@ -21,7 +21,20 @@ export class XtF extends HTMLElement implements ReactiveSurface{
         if(!this._doNotCleanUp) this.groupedRange?.deleteContents();
     }
 }
-const propActions = [] as PropAction[];
+
+const onPipedChunk = ({pipedChunk, self}: XtF) => {
+    if(pipedChunk instanceof HTMLTemplateElement){
+        const documentFragment = pipedChunk.content.cloneNode(true);
+        appendFragment(documentFragment as DocumentFragment, self);
+    }else if(pipedChunk instanceof Element){
+        appendEl(pipedChunk, self);
+    }else if(Array.isArray(pipedChunk)){
+        appendArray(pipedChunk, self);
+    }else if(pipedChunk instanceof NodeList){
+        appendArray(Array.from(pipedChunk), self);
+    }
+};
+const propActions = [onPipedChunk] as PropAction[];
 
 const propDefMap: PropDefMap<XtF> = {
     pipedChunk: {
@@ -33,6 +46,26 @@ const propDefMap: PropDefMap<XtF> = {
         stopReactionsIfFalsy: true,
     }
 };
+
+
+
+function appendArray(ar: Element[], self: XtF){
+    ar.forEach(el => {
+        appendEl(el, self);
+    })
+}
+
+function appendFragment(f: DocumentFragment, self: XtF){
+    Array.from(f.children).forEach(child => {
+        appendEl(child, self);
+    })
+}
+
+function appendEl(el: Element, self: XtF){
+    const elToAppendTo = self.lastGroupedSibling === undefined ? self : self.lastGroupedSibling;
+    elToAppendTo.insertAdjacentElement('afterend', el);
+    self.lastGroupedSibling = el;
+}
 
 const slicedPropDefs =  xc.getSlicedPropDefs(propDefMap);
 xc.letThereBeProps(XtF, slicedPropDefs, 'onPropChange');
