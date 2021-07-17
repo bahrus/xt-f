@@ -1,4 +1,4 @@
-# xt-f [TODO]
+# xt-f
 
 xt-f is a web component.  The f stands for "fragment". The xt can stand for "external", "existential", "XmlStream" -- whatever makes it easier to remember.  
 
