@@ -1,6 +1,10 @@
 import {xc, PropDef, PropAction, PropDefMap, IReactor, ReactiveSurface} from 'xtal-element/lib/XtalCore.js';
 import {applyMixins} from 'xtal-element/lib/applyMixins.js';
 import {GroupedSiblings} from 'xtal-element/lib/GroupedSiblings.js';
+/**
+ * @element xt-f
+ * @tag xt-f
+ */
 export class XtF extends HTMLElement implements ReactiveSurface{
     static is = 'xt-f';
     self = this;

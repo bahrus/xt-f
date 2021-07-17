@@ -1,6 +1,10 @@
 import { xc } from 'xtal-element/lib/XtalCore.js';
 import { applyMixins } from 'xtal-element/lib/applyMixins.js';
 import { GroupedSiblings } from 'xtal-element/lib/GroupedSiblings.js';
+/**
+ * @element xt-f
+ * @tag xt-f
+ */
 export class XtF extends HTMLElement {
     constructor() {
         super(...arguments);
