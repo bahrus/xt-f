@@ -88,3 +88,9 @@ applyMixins(XtF, [GroupedSiblings]);
 xc.define(XtF);
 
 export interface XtF extends GroupedSiblings{}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        'xt-f': XtF;
+    }
+}
