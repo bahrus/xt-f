@@ -21,13 +21,16 @@
   },
   "files": [
     "x*.x",
-    "types.d.ts"
+    "types.d.ts",
+    "custom-elements.json"
   ],
   "dependencies": {
-    "xtal-element": "0.0.400"
+    "xtal-element": "0.0.416"
   },
   "devDependencies": {
-    "xtal-test": "0.0.50"
+    "xtal-test": "0.0.51",
+    "@skypack/package-check": "0.2.2",
+    "@custom-elements-manifest/analyzer": "0.4.12"
   },
   "repository": {
     "type": "git",
