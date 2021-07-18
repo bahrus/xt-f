@@ -1,19 +1,24 @@
 import {xc, PropDef, PropAction, PropDefMap, IReactor, ReactiveSurface} from 'xtal-element/lib/XtalCore.js';
 import {applyMixins} from 'xtal-element/lib/applyMixins.js';
 import {GroupedSiblings} from 'xtal-element/lib/GroupedSiblings.js';
+import {XtFProps} from './types.d.js';
 /**
  * @element xt-f
  * @tag xt-f
  */
 export class XtF extends HTMLElement implements ReactiveSurface{
     static is = 'xt-f';
+    /**
+     * @private
+     */
     self = this;
+    /**
+     * @private
+     */
     propActions = propActions;
     reactor: IReactor = new xc.Rx(this);
 
-    pipedChunk: DocumentFragment | Element | undefined | NodeListOf<Element> | Element[];
 
-    startAnew: boolean | undefined;
 
     connectedCallback(){
         this.style.display = 'none';
@@ -26,6 +31,7 @@ export class XtF extends HTMLElement implements ReactiveSurface{
         if(!this._doNotCleanUp) this.groupedRange?.deleteContents();
     }
 }
+export interface XtF extends XtFProps{}
 
 const onPipedChunk = ({pipedChunk, self}: XtF) => {
     if(pipedChunk instanceof HTMLTemplateElement){

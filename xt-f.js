@@ -8,7 +8,13 @@ import { GroupedSiblings } from 'xtal-element/lib/GroupedSiblings.js';
 export class XtF extends HTMLElement {
     constructor() {
         super(...arguments);
+        /**
+         * @private
+         */
         this.self = this;
+        /**
+         * @private
+         */
         this.propActions = propActions;
         this.reactor = new xc.Rx(this);
     }

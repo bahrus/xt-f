@@ -1,11 +1,28 @@
 {
   "name": "xt-f",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "fragments"
+  ],
+  "description": "xt-f is a web component that provides an api, so that fragments can be passed in and managed, keeping things flat.",
+  "main": "xt-f.js",
+  "module": "xt-f.js",
+  "types": "types.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package-check": "package-check",
+    "doc": "custom-elements-manifest analyze"
   },
+  "exports": {
+    ".": "./xt-f.js",
+    "./xt-f.js": "./xt-f.js"
+  },
+  "files": [
+    "x*.x",
+    "types.d.ts"
+  ],
   "dependencies": {
     "xtal-element": "0.0.400"
   },
